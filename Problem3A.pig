@@ -15,7 +15,7 @@ ntriples2 = foreach raw generate FLATTEN(myudfs.RDFSplit3(line)) as (subject2:ch
 -- select the ntriples that have a match with 'rdfabout.com' in the subject
 ntriples2_filtered = FILTER ntriples2 BY (subject2 matches '.*business.*');
 
--- for this run (for Problem3B) we join by subject1 = subject2
+-- for this test run (for the larger dataset in Problem3B), we join by subject1 = subject2
 joined_triples = join ntriples1_filtered by subject1, ntriples2_filtered by subject2;
 
 -- dispose of duplicates
